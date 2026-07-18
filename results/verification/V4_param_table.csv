@@ -1,0 +1,10 @@
+d_ssp,note,params_full,params_rank8_budget
+2,expressively identical for d>=6 (Thm 5),140,
+4,expressively identical for d>=6 (Thm 5),280,
+6,expressively identical for d>=6 (Thm 5),420,
+8,expressively identical for d>=6 (Thm 5),560,624
+16,expressively identical for d>=6 (Thm 5),1120,736
+32,expressively identical for d>=6 (Thm 5),2240,960
+64,expressively identical for d>=6 (Thm 5),4480,1408
+128,expressively identical for d>=6 (Thm 5),8960,2304
+minimal-exact (d=6),smallest exact SSP,420,
