@@ -28,6 +28,12 @@ class PointSliceEncoder(nn.Module):
         self.last_firing_rate = torch.tensor(0.0)
 
     def forward(self, slices: torch.Tensor, anchors_xyz: torch.Tensor) -> torch.Tensor:
+        if slices.dim() == 3:  # CIFAR: (B,K,P*C) → (B,K,P,C)
+
+            _C = 3 if slices.shape[-1] % 3 == 0 else 1
+
+            slices = slices.view(slices.shape[0], slices.shape[1], -1, _C)
+
         B, K, P, _ = slices.shape
         rel = slices - anchors_xyz.unsqueeze(2)          # local frame
         x = rel.reshape(B * K * P, 3)
