@@ -4,10 +4,9 @@ modality: patches
 data_root: ./data
 img_size: 32
 in_channels: 3
-patch_size: 4
-patch_dim: 48
-num_patches: 64
-k_slices: 64
+patch_dim: 192
+num_patches: 16
+k_slices: 16
 d_model: 128
 enc_hidden: 128
 d_ssp: 64
