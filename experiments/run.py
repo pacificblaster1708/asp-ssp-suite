@@ -49,7 +49,7 @@ def summarize(model, ev, cfg, thetas):
     for r in rows:
         r.update(M.energy_proxy_pj(r["avg_slices"], cfg.get("points_per_slice", 64),
                                    cfg.get("enc_hidden", 64), cfg.get("d_model", 128),
-                                   cfg["k_slices"], cfg["d_ssp"]))
+                                   cfg.get("k_slices", cfg.get("num_patches", 64)), cfg.get("d_ssp", 32)))
         C = cfg["num_classes"]
         r["risk_bound_thm1"] = (C - 1) * (1 - r["theta"]) / C
         r["bound_satisfied"] = r["risk_exited"] <= r["risk_bound_thm1"] + 1e-9
