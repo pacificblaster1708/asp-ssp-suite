@@ -162,7 +162,7 @@ def run_variant(base_cfg, variant, exp, seed, device, out_dir, epochs_override):
                 for c in range(cfg["num_classes"])]
     summary["per_class_acc"] = per_cls
     summary["per_class_exit"] = cls_exit
-    summary["exit_hist"] = torch.bincount(es, minlength=cfg["k_slices"] + 1).tolist()
+    summary["exit_hist"] = torch.bincount(es, minlength=cfg.get("k_slices", 16) + 1).tolist()
 
     torch.save(model.state_dict(), os.path.join(vdir, "model.pt"))
     with open(os.path.join(vdir, "summary.json"), "w") as f:
