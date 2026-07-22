@@ -1,0 +1,2 @@
+acc_full_T,accuracy,aurc,avg_slices,bound_satisfied,dataset,delta_hat,ece,energy_fixed_order_pj,energy_pj,energy_ratio,exit_rate,experiment,final_distinct,revisit_rate,risk_bound_thm1,risk_exited,seed,slice_utilization,ssp_overhead_frac,ssp_params,theta,variant
+0.44829997420310974,0.45579999685287476,0.4070064425468445,14.534799575805664,True,cifar10,0.0176752507686615,0.07909522246611994,6014.238719999999,5497.717009726562,0.91411685928665,0.21709999442100525,A4_dssp,16.0,0.0,0.27,0.2551819438046983,0,0.908424973487854,0.006226650062266501,1920,0.7,d64_rank8
