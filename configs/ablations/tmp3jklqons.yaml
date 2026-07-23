@@ -1,0 +1,21 @@
+eval_thetas:
+- 0.7
+experiment: A3_geometry
+sweep:
+- drop_desc: []
+  name: full
+- drop_desc:
+  - cx
+  - cy
+  - cz
+  name: no_centroid
+- drop_desc:
+  - cx
+  name: no_cx
+- drop_desc:
+  - cy
+  name: no_cy
+- drop_desc:
+  - cz
+  name: no_cz
+type: standard
