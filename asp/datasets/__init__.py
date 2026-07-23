@@ -33,4 +33,11 @@ def build_dataset(name: str, split: str, cfg: dict):
         return CIFARPatchDataset(root, int(name[5:]), split,
                                  corruption=corr, severity=sev,
                                  limit=cfg.get("limit"))
+    if name in {"nmnist","dvscifar10","dvsgesture","shd","ssc","ncaltech101"}:
+        from .neuromorphic import NeuromorphicPointDataset
+        return NeuromorphicPointDataset(name, root, split,
+            n_points=cfg.get("n_points",1024), k_slices=cfg.get("k_slices",16),
+            points_per_slice=cfg.get("points_per_slice",64),
+            event_cap=cfg.get("event_cap",2048), cache=cfg.get("cache",True),
+            limit=cfg.get("limit"), corruption=corr, severity=sev)
     raise ValueError(f"unknown dataset {name}")
