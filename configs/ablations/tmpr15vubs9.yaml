@@ -1,0 +1,10 @@
+eval_thetas:
+- 0.7
+experiment: A4_dssp
+sweep:
+- d_ssp: 128
+  name: d128
+- d_ssp: 64
+  name: d64_rank8
+  ssp_rank: 8
+type: standard

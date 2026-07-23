@@ -1,0 +1,11 @@
+eval_thetas:
+- 0.5
+- 0.7
+- 0.9
+experiment: A5_policy
+sweep:
+- name: ssp
+  policy: ssp
+- name: geometry_only
+  policy: geometry_only
+type: standard
