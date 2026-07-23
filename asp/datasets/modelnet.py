@@ -50,7 +50,12 @@ class ModelNetDataset(Dataset):
         if self._cache is not None and i in self._cache:
             return self._cache[i]
         import numpy as np
-        arr = np.loadtxt(self.files[i], delimiter=",", dtype="float32")[:, :3]
+        fp = self.files[i]
+        npy_fp = fp.replace("modelnet10_normal_resampled","modelnet10_npy").replace(".txt",".npy")
+        if os.path.exists(npy_fp):
+            arr = np.load(npy_fp)
+        else:
+            arr = np.loadtxt(fp, delimiter=",", dtype="float32")[:, :3]
         pts = torch.from_numpy(arr)
         if self._cache is not None:
             self._cache[i] = pts

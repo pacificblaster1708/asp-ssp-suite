@@ -102,8 +102,8 @@ def risk_coverage(margins_final: torch.Tensor, correct: torch.Tensor) -> dict:
     """S5: selective risk-coverage curve ordered by confidence margin; AURC."""
     order = margins_final.argsort(descending=True)
     err = (~correct[order]).float()
-    cum_risk = err.cumsum(0) / torch.arange(1, len(err) + 1)
-    coverage = torch.arange(1, len(err) + 1).float() / len(err)
+    cum_risk = err.cumsum(0) / torch.arange(1, len(err) + 1, device=err.device)
+    coverage = torch.arange(1, len(err) + 1, device=err.device).float() / len(err)
     return {"aurc": cum_risk.mean().item(),
             "coverage": coverage.tolist(), "risk": cum_risk.tolist()}
 
